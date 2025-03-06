@@ -1,11 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
+const path = require('path'); // Add this for path handling
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static('../'));
+app.use(express.static(path.join(__dirname, '..'))); // Serve static files from parent directory
 
 // Nodemailer setup
 const transporter = nodemailer.createTransport({
@@ -18,7 +19,7 @@ const transporter = nodemailer.createTransport({
 
 let orders = [];
 
-// Checkout endpoint (unchanged from previous)
+// Checkout endpoint
 app.post('/api/checkout', (req, res) => {
     const { name, email, address, cart, paymentMethod, orderId } = req.body;
     const total = cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
@@ -47,6 +48,7 @@ app.post('/api/checkout', (req, res) => {
         });
 });
 
+// Order tracking endpoint
 app.get('/api/order/:orderId', (req, res) => {
     const order = orders.find(o => o.orderId === req.params.orderId);
     if (order) res.json(order);
@@ -56,7 +58,6 @@ app.get('/api/order/:orderId', (req, res) => {
 // Contact endpoint
 app.post('/api/contact', (req, res) => {
     const { name, email, message } = req.body;
-
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: process.env.ADMIN_EMAIL,
@@ -70,6 +71,11 @@ app.post('/api/contact', (req, res) => {
             console.error('Contact email error:', error);
             res.status(500).json({ success: false, error: 'Failed to send message' });
         });
+});
+
+// Fallback route for root URL
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
