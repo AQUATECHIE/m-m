@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./images/mou-logo.jpg" alt="" width="50">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <!-- Cart Icon with Item Count -->
+        <div class="d-flex align-items-center">
+          <a href="cart.html" class="text-white text-decoration-none me-2">
+            <i class="bi bi-cart3 fs-4"></i>
+            <span class="badge bg-danger rounded-pill" id="cart-count">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Checkout Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Checkout</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Your Order</h4>
+        <p><strong>Order ID:</strong> <span id="order-id"></span></p>
+        <div id="order-summary" class="mb-4"></div>
+        <h5>Total: $<span id="order-total">0.00</span></h5>
+      </div>
+      <div class="col-md-6">
+        <h4>Customer Details</h4>
+        <form id="checkout-form">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Delivery Address</label>
+            <textarea class="form-control" id="address" rows="3" required></textarea>
+          </div>
+          <h4>Payment Method</h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked />
+            <label class="form-check-label" for="cod">Payment on Delivery (COD)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paymentMethod" id="bankTransfer" value="bankTransfer" />
+            <label class="form-check-label" for="bankTransfer">Bank Transfer</label>
+          </div>
+          <div id="payment-instructions" class="mt-3"></div>
+          <button type="submit" class="btn btn-success mt-3">
+            Complete Order
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold mb-3">Mouth Munchers</h5>
+          <p class="text-muted">Your one-stop shop for quality products at unbeatable prices. Shop with us today!</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="#home" class="text-white text-decoration-none hover-link">Home</a></li>
+            <li><a href="#about" class="text-white text-decoration-none hover-link">About</a></li>
+            <li><a href="products.html" class="text-white text-decoration-none hover-link">Products</a></li>
+            <li><a href="#contact" class="text-white text-decoration-none hover-link">Contact</a></li>
+            <li><a href="track.html" class="text-white text-decoration-none hover-link">Track Order</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5 class="fw-bold mb-3">Contact Info</h5>
+          <p class="text-muted">
+            <i class="bi bi-envelope me-2"></i> support@eshop.com<br>
+            <i class="bi bi-telephone me-2"></i> +1 234 567 890<br>
+            <i class="bi bi-geo-alt me-2"></i> 123 E-Shop Lane, Web City
+          </p>
+          <div class="social-links mt-3">
+            <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+            <a href="#" class="text-white"><i class="bi bi-instagram fs-4"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="text-center">
+        <p class="mb-0">© 2025 E-Shop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
+
+  <script>
+    // Generate Order ID with payment method prefix
+    function generateOrderId(paymentMethod) {
+      const prefix = paymentMethod === "cod" ? "ORD-COD-" : "ORD-BT-";
+      return prefix + Math.random().toString(36).substr(2, 9).toUpperCase();
+    }
+
+    // Display order summary and total
+    function displayOrderSummary() {
+      const orderSummary = document.getElementById("order-summary");
+      const orderTotal = document.getElementById("order-total");
+      const orderId = document.getElementById("order-id");
+      const paymentMethod = document.querySelector(
+        'input[name="paymentMethod"]:checked'
+      ).value;
+      orderId.textContent = generateOrderId(paymentMethod);
+
+      if (cart.length === 0) {
+        orderSummary.innerHTML = "<p>Your cart is empty.</p>";
+        orderTotal.textContent = "0.00";
+      } else {
+        let total = 0;
+        orderSummary.innerHTML = cart
+          .map((item) => {
+            const subtotal = item.product.price * item.quantity;
+            total += subtotal;
+            return `<p>${item.product.name} x ${item.quantity
+              } - $${subtotal.toFixed(2)}</p>`;
+          })
+          .join("");
+        orderTotal.textContent = total.toFixed(2);
+      }
+      updatePaymentInstructions();
+    }
+
+    // Update payment instructions
+    function updatePaymentInstructions() {
+      const paymentInstructions = document.getElementById(
+        "payment-instructions"
+      );
+      const selectedMethod = document.querySelector(
+        'input[name="paymentMethod"]:checked'
+      ).value;
+      const orderId = document.getElementById("order-id").textContent;
+
+      if (selectedMethod === "cod") {
+        paymentInstructions.innerHTML = `<p>Please have $${document.getElementById("order-total").textContent
+          } ready in cash when your order (${orderId}) is delivered.</p>`;
+      } else if (selectedMethod === "bankTransfer") {
+        paymentInstructions.innerHTML = `
+                <p>Please transfer $${document.getElementById("order-total").textContent
+          } to:</p>
+                <ul>
+                    <li><strong>Bank Name:</strong> E-Shop Bank</li>
+                    <li><strong>Account Number:</strong> 1234-5678-9012</li>
+                    <li><strong>Routing Number:</strong> 987654321</li>
+                </ul>
+                <p>Reference: ${orderId}</p>
+            `;
+      }
+    }
+
+    // Complete the order with backend call
+    function completeOrder(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const address = document.getElementById("address").value;
+      const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+      const orderId = document.getElementById("order-id").textContent;
+
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      if (!name || !email || !address) {
+        alert("Please fill in all customer details!");
+        return;
+      }
+
+      fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, address, cart, paymentMethod, orderId })
+      })
+        .then(response => {
+          console.log('Checkout response status:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.text(); // Get raw text first
+        })
+        .then(text => {
+          console.log('Checkout raw response:', text);
+          const data = JSON.parse(text); // Parse JSON
+          if (data.success) {
+            alert(`Order ${orderId} placed successfully! Confirmation sent to ${email}.`);
+            cart = [];
+            saveCart();
+            updateCartCount();
+            window.location.href = "index.html";
+          } else {
+            alert("Error placing order: " + data.error);
+          }
+        })
+        .catch(error => {
+          console.error('Checkout fetch error:', error);
+          alert("Error: " + error.message);
+        });
+    }
+
+    // Event listeners
+    document
+      .querySelectorAll('input[name="paymentMethod"]')
+      .forEach((input) => {
+        input.addEventListener("change", displayOrderSummary);
+      });
+    document
+      .getElementById("checkout-form")
+      .addEventListener("submit", completeOrder);
+
+    // Load order summary on page load
+    window.onload = displayOrderSummary;
+  </script>
+</body>
+
+</html>
