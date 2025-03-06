@@ -1,12 +1,20 @@
 require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
-const path = require('path'); // Add this for path handling
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static('public')); // Serve static files from public/
+app.use(express.static('public', { 
+    index: 'index.html' // Explicitly set index file
+})); // Serve static files from public/
+
+// Log requests for debugging
+app.use((req, res, next) => {
+    console.log(`Request: ${req.method} ${req.url}`);
+    next();
+});
 
 let orders = [];
 
@@ -71,9 +79,14 @@ app.post('/api/contact', (req, res) => {
         });
 });
 
-// Fallback route to serve index.html for root requests
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'index.html'));
+// Serve index.html for root and /index.html
+app.get(['/', '/index.html'], (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'), (err) => {
+        if (err) {
+            console.error('Error serving index.html:', err);
+            res.status(500).send('Server error');
+        }
+    });
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
