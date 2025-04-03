@@ -1,11 +1,17 @@
 // Sample product data
 const products = [
-    { id: 1, name: "muchers", price: 19.99, image: "./images/product10.jpg" },
-    { id: 2, name: "muchers", price: 39.99, image: "./images/product10.jpg" },
-    { id: 3, name: "muchers", price: 59.99, image: "./images/product10.jpg" },
-    { id: 4, name: "muchers", price: 79.99, image: "./images/product10.jpg" },
-    { id: 5, name: "muchers", price: 14.99, image: "./images/product10.jpg" },
-    { id: 6, name: "muchers", price: 99.99, image: "./images/product10.jpg" }
+    { id: 1, name: "coconut-poundo 500g", price: 6500, image: "./images/mm-coconut-pundo.jpg" },
+    { id: 2, name: "coconut-flour 500g", price: 4500, image: "./images/coconut-flour.jpg" },
+    { id: 3, name: "unripe-plantain-flour 1kg", price: 6500, image: "./images/unripe-plantain-flour.jpg" },
+    { id: 4, name: "coconut-flakes-sweetened 150g", price: 2500, image: "./images/coconut-flakes-sweetned.jpg" },
+    { id: 5, name: "coconut-flakes-unsweetened 150g", price: 2500, image: "./images/coconut-flakes-unsweetned.jpg" },
+    { id: 6, name: "coconut-chinchin 220g", price: 2800, image: "./images/coconut-chinchin.jpg" },
+    { id: 7, name: "mixed-nut 200g", price: 4500, image: "./images/mixed-nut-200g.jpg" },
+    { id: 8, name: "mixed-nut 100g", price: 2500, image: "./images/mixed-nut.jpg" },
+    { id: 9, name: "coconut-oil 500ml", price: 11500, image: "./images/coconut-oil-500ml.jpg" },
+    { id: 10, name: "coconut-oil 1ltr", price: 21500, image: "./images/coconut-oil-1ltr.jpg" },
+    { id: 11, name: "coconut-candy 150g", price: 2500, image: "./images/coconut-candy.jpg" },
+    { id: 12, name: "coconut-water", price: 2500, image: "./images/coconut-water.jpg" },
 ];
 
 // Cart array (loaded from localStorage if exists)
@@ -38,7 +44,7 @@ function displayProducts(productArray = products) {
                         <img src="${product.image}" class="card-img-top" alt="${product.name}">
                         <div class="card-body">
                             <h5 class="card-title">${product.name}</h5>
-                            <p class="card-text">$${product.price.toFixed(2)}</p>
+                            <p class="card-text">${product.price.toFixed(2)}</p>
                             <button class="btn btn-success" onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
                         </div>
                     </div>

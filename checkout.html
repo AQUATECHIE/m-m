@@ -56,7 +56,7 @@
         <h4>Your Order</h4>
         <p><strong>Order ID:</strong> <span id="order-id"></span></p>
         <div id="order-summary" class="mb-4"></div>
-        <h5>Total: $<span id="order-total">0.00</span></h5>
+        <h5>Total: <span id="order-total">0.00</span></h5>
       </div>
       <div class="col-md-6">
         <h4>Customer Details</h4>
@@ -176,7 +176,7 @@
             const subtotal = item.product.price * item.quantity;
             total += subtotal;
             return `<p>${item.product.name} x ${item.quantity
-              } - $${subtotal.toFixed(2)}</p>`;
+              } - ${subtotal.toFixed(2)}</p>`;
           })
           .join("");
         orderTotal.textContent = total.toFixed(2);
@@ -195,11 +195,11 @@
       const orderId = document.getElementById("order-id").textContent;
 
       if (selectedMethod === "cod") {
-        paymentInstructions.innerHTML = `<p>Please have $${document.getElementById("order-total").textContent
+        paymentInstructions.innerHTML = `<p>Please have ${document.getElementById("order-total").textContent
           } ready in cash when your order (${orderId}) is delivered.</p>`;
       } else if (selectedMethod === "bankTransfer") {
         paymentInstructions.innerHTML = `
-                <p>Please transfer $${document.getElementById("order-total").textContent
+                <p>Please transfer ${document.getElementById("order-total").textContent
           } to:</p>
                 <ul>
                     <li><strong>Bank Name:</strong> E-Shop Bank</li>
